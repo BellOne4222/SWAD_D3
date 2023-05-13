@@ -1,4 +1,5 @@
 # 5215. 햄버거 다이어트
+# https://happybplus.tistory.com/355
 
 # 평소 햄버거를 좋아하던 민기는 최근 부쩍 늘어난 살 때문에 걱정이 많다.
 
@@ -48,6 +49,14 @@ for test_case in range(1, T+1):
     combination = [[] for _ in range(N)] # 점수와 칼로리 조합 
 
     # L을 넘지 않은 모든 조합을 combination에 저장
+    for i in range(n):
+        combination[i].append(ingredient[i])
+        for j in range(0, i):
+            for k in combination[j]:
+                T, K = k
+                if T + ingredient[i][1] <= L:
+                    combination[i].append(())
+
 
     # 그 중에서 가장 큰 점수 추출
 
