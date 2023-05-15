@@ -24,24 +24,22 @@
 
 # 각 테스트 케이스마다 과제를 제출하지 않은 사람의 번호를 오름차순으로 출력한다.
 
-# T = int(input())
-T = 2
+T = int(input())
 
 for test_case in range(1, T+1):
-    # N, K = map(int, input().split())
-    N, K = 5, 3
-    # did = list(map(int, input().split()))
-    did = [2, 5, 3]
-    did.sort()
-
-    people = [i for i in range(1, N+1)]
-    print(people)
-    did_not = []
-    for j in did:
-        if j not in people:
-            print(j)
-    did_not.sort()
-    print(did_not) 
+    N, K = map(int, input().split())
     
-    # print("#{} {}".format(test_case, did_not))
+    did = list(map(int, input().split())) # 한 사람 번호
+    did.sort() # 한 사람들 번호 정렬
+
+    people = [i for i in range(1, N+1)] # n명의 번호 리스트 생성
+    did_not = []
+    for j in people: # 안한 사람들 번호를 안한 사람들 리스트에 넣기
+        if j not in did:
+            did_not.append(j)
+    did_not.sort()
+    did_not = list(map(str, did_not))
+    did_not = ' '.join(did_not)
+    
+    print("#{} {}".format(test_case, did_not))
 
