@@ -40,22 +40,40 @@
 
 # 각 테스트 케이스마다 1번 조의 실력에서 K번 조의 실력을 나타내는 K개의 정수를 순서대로 공백 하나로 구분하여 출력한다.
 
-# 스택 사용?
+# 풀이 : 
+# 1번 조의 실력 = N + (N × K) + (N × K - 1) + ... + (N × K - K + 1)
+# 2번 조의 실력 = (N - 1) + (N × K + 1) + (N × K + 2) + ... + (N × K + K - 2)
+# 3번 조의 실력 = N - 2 + (N × K + K - 1) + (N × K + K) + ... + (N × K + 2K - 3)
+# ...
+# K번 조의 실력 = (N - K + 1) + (N × K + 2K - 2) + (N × K + 2K - 1) + ... + (N × K + K - 1)
 
+# 위 함수는 N과 K를 입력으로 받아, 1번 조부터 K번 조까지의 실력을 계산한 결과를 리스트로 반환합니다. 
+# 각 조의 실력을 계산하는 과정에서는 두 번째 for 루프를 통해 해당 조에 속한 학생들의 등수를 계산하고, 이를 합산하여 각 조의 실력을 계산합니다. 등수는 N × K부터 1까지 내림차순으로 부여되므로, 이를 이용하여 계산합니다.
 
+# 위 코드에서는 테스트 케이스의 수 T를 입력받은 후, T번 반복하면서 각각의 테스트 케이스에 대해 N과 K를 입력받고, calc_ability() 함수를 호출하여 1번 조부터 K번 조까지의 실력을 계산합니다. 이후 결과를 출력할 때는 리스트를 문자열로 변환한 후 출력합니다.
+
+def calc_ability(N, K):
+    abilities = []
+    for i in range(K):
+        ability = 0
+        for j in range(N):
+            rank = N * K - i * N - j
+            if rank <= 0:
+                break
+            ability += rank
+        abilities.append(ability)
+    return abilities
+
+# T = int(input())
 T = 1
-N = 10
-K = 20
-nums = []
+for t in range(1, T + 1):
+    # N, K = map(int, input().split())
+    N, K = 4, 6
+    abilities = calc_ability(N, K)
+    print(f"#{t} {' '.join(map(str, abilities))}")
 
-for i in range(1, T+1): 
-    for j in range(1, K+1):
-        rank = [j for j in range(j, N*K+1, 6)]
-        print(rank)
-        skill = sum(rank)
-        nums.append(skill)
 
-print(nums)
+
         
         
             
