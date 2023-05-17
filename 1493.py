@@ -106,6 +106,7 @@ for test_case in range(1, T+1):
 
  
 
+
 # p_cnt 값을 늘려나가며 num2에서 p_cnt를 빼준다.
 
 # num2의 값이 음수거나 0이라면 해당 p_cnt가 num의 그룹이 된다.
