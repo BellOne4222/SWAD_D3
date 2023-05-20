@@ -61,7 +61,7 @@ for test_case in range(T):
     N = int(input())
     nums = list(map(int, input().split()))
     max_result = -1 # 단조 값 곱의 최대값
-    for i in range(N - 1): # N개에서 2개 뽑아서 하는 조합 
+    for i in range(N - 1): # N개에서 2개 뽑아서 하는 조합, 여기 범위에서 몇개 뽑는지 결정(N-2까지 이므로 2개)
         for j in range(i + 1, N):
             check = str(nums[i] * nums[j]) # 단조값 곱
             for k in range(len(check) - 1): 
