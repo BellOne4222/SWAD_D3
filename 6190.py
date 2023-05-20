@@ -64,7 +64,7 @@ for test_case in range(T):
     for i in range(N - 1): # N개에서 2개 뽑아서 하는 조합, 여기 범위에서 몇개 뽑는지 결정(N-2까지 이므로 2개)
         for j in range(i + 1, N):
             check = str(nums[i] * nums[j]) # 단조값 곱
-            for k in range(len(check) - 1): 
+            for k in range(len(check) - 1): # 두 개씩 검사하니까 범위를 전체 - 검사하는 숫자 수
                 if check[k] > check[k + 1]: # 단조가 아니면 반복 종료
                     break
             else:

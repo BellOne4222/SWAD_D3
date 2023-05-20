@@ -25,7 +25,7 @@ for _ in range(10) :
     N, M = map(int, input().split())
 
     def power(N, M) :
-        if M == 0 :
+        if M == 0 : 
             return 1
         else:
             return N * power(N, M-1) # 재귀 사용

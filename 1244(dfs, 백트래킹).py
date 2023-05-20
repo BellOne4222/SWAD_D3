@@ -99,7 +99,7 @@ def dfs(change):
         return 
     
     for i in range(len(num_table)): # 두 개씩 뽑아서 조합을 만들어 비교한다. 
-        for j in range(i+1, len(num_table)):
+        for j in range(i+1, len(num_table)): 
             num_table[i], num_table[j] = num_table[j], num_table[i] # 교환
             changed = ''.join(num_table) # 숫자판을 바꾸면 합쳐서 문자열로 만들어서 비교
             if visited.get((changed, change), 1): # 가지치기 : visited에 (바꾼 숫자판, 교환 횟수) key가 없으면 1로 처리 -> 방문한 적이 없으면 1 
